@@ -7,6 +7,7 @@ Employers often trawl applicants’ social media presences for objectionable beh
 ## Todo's
 
 ### Samy
+* ~~write abstract~~
 * FB API call function that returns dict
 
 ### Dylan
