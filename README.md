@@ -13,7 +13,13 @@ Employers often trawl applicants’ social media presences for objectionable beh
 * Linkedin API call function that returns dict
 
 ### Paul
-* FB user class w/ attributes from dict
+* FB user class w/ attributes from dict (and any other useful functions you can think of)
 
 ### Christina
-* Linkedin user class w/ attributes from dict
+* Linkedin user class w/ attributes from dict (and any other useful functions you can think of)
+
+### Later
+* search function for FB that returns FB user objects
+* search function for Linkedin that returns Linkedin user objects
+* function to compare users
+* Web based UI front end
