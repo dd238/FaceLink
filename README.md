@@ -10,16 +10,17 @@ Employers often trawl applicants’ social media presences for objectionable beh
 * ~~Twitter search API call function - takes in user name, returns list of twitter-user objects~~
 
 ### Dylan
-* Linkedin user API call function - takes in user ID, returns Linkedin user object w/ data (e.g. work history, education, etc.)
+* ~~Linkedin user API call function - takes in user ID, returns Linkedin user object w/ data (e.g. work history, education, etc.)~~
 
 ### Paul
 * ~~Twitter user class~~
-* find objectionable tweets function
+* ~~find objectionable tweets function~~
 
 ### Christina
-* Linkedin user class
+* ~~Linkedin user class~~
 
 ### Later
-* Twitter API function that returns objectionable tweets as list of strings for a given user
+* Twitter API function that returns (objectionable) tweets as list of strings for a given user
 * function to compare users
 * Web based UI front end
+* code refactoring/cleanup
