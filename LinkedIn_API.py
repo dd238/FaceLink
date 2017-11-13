@@ -1,16 +1,21 @@
+"""
+Programmer: Dylan Davis 
+Version: 1.0.0
+"""
+
 from linkedin import linkedin
 
 class linkedinUser(object):
 
-    def __init__(self, name, username, location):
-        """
-        Return a linkedin user object whose full name is *name*,
-        twitter username is *username*,
-        location is *location*
-        """
-        self.name = name
-        self.username = username
-        self.location = location
+    def __init__(self, key, secret, redirect_uri, permissions=None):
+        self.key = key
+        self.secret = secret
+        self.redirect_uri = redirect_uri
+        self.permissions = permissions or []
+        self.state = None
+        self.authorization_code = None
+        self.token = None
+        self._error = None
 
 def searchLinkedIn(user):
     CONSUMER_KEY = '86rgu0o94324wm'
