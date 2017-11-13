@@ -1,4 +1,5 @@
 from twitter import *
+import string
 
 class twitterUser(object):
 
@@ -35,5 +36,29 @@ def searchTwitter(user):
 		users.append(twitterUser(user["name"], user["screen_name"], user["location"]))
 
 	return users
+
+def removePunctuation(word):
+	punct = string.punctuation
+	for character in punct:
+		word = word.replace(character, "")
+	return word
+
+# returns a list of tweets and their ratings [tweet, rating]
+# works by adding a point for every objectionable word found in each tweet
+def checkObjectionable(listOfTweets, listOfObjectionableWords):
+	toReturn = []
+	for tweet in listOfTweets:
+		lowerCased = tweet.lower()
+		splitted = lowerCased.split(" ")
+		currTweetRating = [tweet, 0]
+		for word in splitted:
+			word = removePunctuation(word)
+			if word in bad:
+				currTweetRating[1] += 1
+		toReturn.append(currTweetRating)
+	# lambda is how we can sort on second element in the list
+	toReturn.sort(key=(lambda x :x[1]),reverse=True)
+	return toReturn
+
 
 print(searchTwitter("Samy Achour")[0].name)
