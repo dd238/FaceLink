@@ -7,7 +7,7 @@ Employers often trawl applicants’ social media presences for objectionable beh
 
 ### Samy
 * ~~write abstract~~
-* Twitter search API call function - takes in user name, returns list of twitter-user objects
+* ~~Twitter search API call function - takes in user name, returns list of twitter-user objects~~
 
 ### Dylan
 * Linkedin search API call function - takes in user name as search query, returns list of Linkedin-user objects
