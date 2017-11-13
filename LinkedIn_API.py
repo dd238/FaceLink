@@ -24,7 +24,7 @@ def searchLinkedIn(user):
     USER_SECRET = 'ea4f089f-d2ea-4feb-b750-96811c4c4e66'
     RETURN_URL = 'http://localhost:8000'
     authentication = linkedin.LinkedInDeveloperAuthentication(CONSUMER_KEY, CONSUMER_SECRET, USER_TOKEN, USER_SECRET, RETURN_URL, linkedin.PERMISSIONS.enums.values())
-    
+    application = linkedin.LinkedInApplication(authentication)
     results = application.get_profile()
     {u'firstName': u'Dylan',
     u'headline': u'',
