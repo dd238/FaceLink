@@ -19,7 +19,7 @@ Employers often trawl applicants’ social media presences for objectionable beh
 * Linkedin user class w/ attributes from dict (and any other useful functions you can think of)
 
 ### Later
-* Twitter API function that returns tweets as list of strings for a given user
+* Twitter API function that returns objectionable tweets as list of strings for a given user
 * Linkedin API function that returns linkedin data about given user
 * function to compare users
 * Web based UI front end
