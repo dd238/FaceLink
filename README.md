@@ -24,6 +24,7 @@ Employers often trawl applicants’ social media presences for objectionable beh
 * finalize linkedin user class (add functionality so the object class can return work history, education, etc.)
 
 ### Later
+* make poster
 * function to compare users
 * web back end to update linkedin profile preview and objectionable tweets
 * code refactoring/cleanup
