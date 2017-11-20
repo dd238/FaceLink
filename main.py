@@ -1,5 +1,6 @@
 from twitter import *
 import string
+import csv
 
 class twitterUser(object):
 
@@ -81,7 +82,13 @@ def getObjectionableTweets(user):
 	for status in results:
 		tweets.append(status["text"].encode("ascii", "ignore"))
 
-	return checkObjectionable(tweets, ["fuck"])
+	badWords = []
+	with open('Terms-to-Block.csv', 'r') as f:
+		reader = csv.reader(f)
+		for i in list(reader):
+			badWords.append(i[0])
+
+	return checkObjectionable(tweets, badWords)
 
 
 print(searchTwitter("Samy Achour")[0].name)
