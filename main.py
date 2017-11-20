@@ -63,7 +63,7 @@ def checkObjectionable(listOfTweets, listOfObjectionableWords):
 
 def getObjectionableTweets(user):
 	"""
-    Searches user's tweets, returns objectionable ones
+    Searches user's tweets, returns thems in order of objectionability
     ----------
     user : string
         user name
