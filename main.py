@@ -53,12 +53,36 @@ def checkObjectionable(listOfTweets, listOfObjectionableWords):
 		currTweetRating = [tweet, 0]
 		for word in splitted:
 			word = removePunctuation(word)
-			if word in bad:
+			if word in listOfObjectionableWords:
 				currTweetRating[1] += 1
 		toReturn.append(currTweetRating)
 	# lambda is how we can sort on second element in the list
 	toReturn.sort(key=(lambda x :x[1]),reverse=True)
 	return toReturn
 
+def getObjectionableTweets(user):
+	"""
+    Searches user's tweets, returns objectionable ones
+    ----------
+    user : string
+        user name
+
+    Returns
+    -------
+    tweets : array
+        objectionable tweets as strings
+    """
+	twitter = Twitter(
+			auth = OAuth("754771372996435968-uJ7WYrDBgd0WslQv1nzYb62xmOfW2dr", "ARxSD4Wa7q8ih41aF13cvsmw1hOmjz1B8jdihhTBWdotX", "5C6fklOsuiPNBqUjcFBm2lw5Q", "91gLoRw2MOEmxInmlosjyUVxdgXeWDG8fn0bhcXab7tCt6aOab"))
+
+	results = twitter.statuses.user_timeline(screen_name = user)
+	tweets = []
+
+	for status in results:
+		tweets.append(status["text"].encode("ascii", "ignore"))
+
+	return checkObjectionable(tweets, ["fuck"])
+
 
 print(searchTwitter("Samy Achour")[0].name)
+print(getObjectionableTweets("ericandre"))
