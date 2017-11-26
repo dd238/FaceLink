@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Social Link</title>
+    {% load static %}
+	<link rel="stylesheet" href="{% static 'socialLink/style.css' %}">
+</head>
+<body>
+	<div class="header">
+		<h1>SocialLink</h1>
+	</div>
+
+
+	<div class="search">
+		<label for="search">Name to search for: <input type="text"></label>
+		<button>Search</button>
+	</div>
+
+	<div class="previews">
+		<div class="linkedin">
+			<h1>LinkedIn</h1>
+			<div class="tweet">
+				<p class="tweet-body">This is a tweet, a really long Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae molestias, dolorem neque sunt consequatur, ea cumque. Soluta possimus, animi doloribus natus sequi rem aliquam at fuga minus! Unde facilis, obcaecati.</p>
+				<p class="tweet-date">1/1/1970</p>
+			</div>
+		</div>
+
+
+		<div class="twitter">
+			<h1>Twitter</h1>
+            {% for tweet in tweets %}
+            <div class="tweet">
+				<p class="tweet-body">{{ tweet.body }}</p>
+				<p class="tweet-date">{{ tweet.date }}</p>
+			</div>
+            {% endfor %}
+		</div>
+	</div>
+</body>
+</html>
