@@ -8,18 +8,33 @@ Employers often trawl applicants’ social media presences for objectionable beh
 ### Samy
 * ~~write abstract~~
 * ~~Twitter search API call function - takes in user name, returns list of twitter-user objects~~
+* ~~Twitter API function that returns (objectionable) tweets as list of strings for a given user~~
 
 ### Dylan
-* Linkedin user API call function - takes in user ID, returns Linkedin user object w/ data (e.g. work history, education, etc.)
+* ~~Linkedin user API call function - takes in user ID, returns Linkedin user object w/ data (e.g. work history, education, etc.)~~
+* finalize linkedin user class (help christina use the api function for her todo)
 
 ### Paul
 * ~~Twitter user class~~
-* find objectionable tweets function
+* ~~find objectionable tweets function~~
+* ~~Web front end (just a skeleton: text box, section for linkedin profile preview, and a section for tweets)~~
 
 ### Christina
-* Linkedin user class
+* ~~Linkedin user class~~
+* finalize linkedin user class (add functionality so the object class can return work history, education, etc.)
 
 ### Later
-* Twitter API function that returns objectionable tweets as list of strings for a given user
-* function to compare users
-* Web based UI front end
+* make poster
+* function to compare users?
+* web back end to update linkedin profile preview and objectionable tweets
+* code refactoring/cleanup
+
+## Setup (This assumes python 2.7 with pip is installed already)
+1. Install [django](https://www.djangoproject.com/download/) `pip install Django==1.11.7`
+2. Install [twitter](https://pypi.python.org/pypi/twitter) `pip install twitter`
+3. Install [oauth2](https://github.com/joestump/python-oauth2) `pip install oauth2`
+3. Install [linkedin](https://github.com/ozgur/python-linkedin) `pip install python-linkedin`
+
+## Running
+1. cd to the `main` directory and run `python manage.py runserver`
+

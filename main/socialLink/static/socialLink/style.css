@@ -1,0 +1,65 @@
+.tweet {
+	border: 1px solid black;
+	border-radius: 10px;
+	box-shadow: 3px 7px 5px #70768e;
+	padding: 5px 10px;
+	width: 90%;
+	margin:10px;
+	background-color: #FAFAFA;
+}
+
+.linkedin {
+	width: 90%;
+}
+
+.twitter {
+	width: 90%;
+}
+
+.previews {
+	width:90%;
+	margin:0 auto;
+	text-align:center;
+	display: flex;
+}
+
+.header {
+	background-color: white;
+	padding:30px;
+	width: 100%;
+	margin: 0px;
+	box-shadow: 3px 7px 5px #70768e
+}
+
+.search {
+	padding:30px;
+	background-color: #98002E;
+	width:40%;
+	margin: 20px auto;
+	color:white;
+    text-align: center;
+
+}
+.search label {
+	font-size: 150%;
+	text-shadow:
+   -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+.search button {
+	border-radius: 10px;
+	margin-left: 15px;
+
+}
+
+.header h1 {
+	margin: 0 auto;
+	text-align: center;
+}
+
+body {
+	font-family: sans-serif;
+	background-color: #EAEAEA;
+}
