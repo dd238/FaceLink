@@ -36,3 +36,7 @@ Employers often trawl applicants’ social media presences for objectionable beh
 * function to compare users?
 * web back end to update linkedin profile preview and objectionable tweets
 * code refactoring/cleanup
+
+## Setup
+
+Need [twitter](https://pypi.python.org/pypi/twitter), [linkedin](https://github.com/ozgur/python-linkedin), and [django](https://www.djangoproject.com/download/) installed
