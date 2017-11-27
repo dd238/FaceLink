@@ -17,7 +17,7 @@ Employers often trawl applicants’ social media presences for objectionable beh
 ### Paul
 * ~~Twitter user class~~
 * ~~find objectionable tweets function~~
-* Web front end (just a skeleton: text box, section for linkedin profile preview, and a section for tweets)
+* ~~Web front end (just a skeleton: text box, section for linkedin profile preview, and a section for tweets)~~
 
 ### Christina
 * ~~Linkedin user class~~
@@ -25,7 +25,7 @@ Employers often trawl applicants’ social media presences for objectionable beh
 
 ### Later
 * make poster
-* function to compare users
+* function to compare users?
 * web back end to update linkedin profile preview and objectionable tweets
 * code refactoring/cleanup
 
