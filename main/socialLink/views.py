@@ -76,16 +76,15 @@ def checkObjectionable(listOfTweets):
 
     toReturn = []
     for tweet in listOfTweets:
-        lowerCased = tweet.lower()
+        lowerCased = tweet.body.lower()
         splitted = lowerCased.split(" ")
-        currTweetRating = [tweet, 0]
         for word in splitted:
             word = removePunctuation(word)
             if word in badWords:
-                currTweetRating[1] += 1
-        toReturn.append(currTweetRating)
+                tweet.rating += 1
+        toReturn.append(tweet)
     # lambda is how we can sort on second element in the list
-    toReturn.sort(key=(lambda x: x[1]), reverse=True)
+    toReturn.sort(key=(lambda x: x.rating), reverse=True)
     return toReturn
 
 
@@ -110,7 +109,7 @@ def getObjectionableTweets(user):
     tweets = []
 
     for status in results:
-        tweets.append(status["text"].encode("ascii", "ignore"))
+        tweets.append(Tweet(status["text"].encode("ascii", "ignore"), status["created_at"].encode("ascii", "ignore")[:10]))
 
     return checkObjectionable(tweets)
 
@@ -129,12 +128,9 @@ def index(request):
 
     #print "Linkedin: " + linkedInUrl
 
-	name = " ".join(linkedInUrl[linkedInUrl.find("/in/") + 4:].split("-")[:2])
+	name = " ".join(linkedInUrl[linkedInUrl.find("/in/") + 4:].split("-")[:2]) # grabs name from URL
 	screen_name = searchTwitter(name)[0].username
-	raw_tweets = getObjectionableTweets(screen_name)
-	tweets = []
-    for i in raw_tweets:
-        tweets.append(Tweet(i[0], "1/1/1"))
+	tweets = getObjectionableTweets(screen_name)
 
     template = loader.get_template("socialLink/index.html")
     context = {

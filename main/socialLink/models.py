@@ -7,3 +7,4 @@ class Tweet:
     def __init__(self, body="", date=""):
         self.body = body
         self.date = date
+        self.rating = 0
