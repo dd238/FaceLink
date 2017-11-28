@@ -118,7 +118,6 @@ def getObjectionableTweets(user):
 # Create your views here.
 
 def index(request):
-    raw_tweets = getObjectionableTweets("ericandre")
     # json.dumps(request)
     # print request.body
     linkedInUrl = ''
@@ -128,10 +127,15 @@ def index(request):
     if 'linked' in queryDict.keys():
         linkedInUrl = queryDict['linked']
 
-    print "Linkedin: " + linkedInUrl
-    tweets = []
+    #print "Linkedin: " + linkedInUrl
+
+	name = " ".join(linkedInUrl[linkedInUrl.find("/in/") + 4:].split("-")[:2])
+	screen_name = searchTwitter(name)[0].username
+	raw_tweets = getObjectionableTweets(screen_name)
+	tweets = []
     for i in raw_tweets:
         tweets.append(Tweet(i[0], "1/1/1"))
+
     template = loader.get_template("socialLink/index.html")
     context = {
         'tweets': tweets,
