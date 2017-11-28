@@ -9,10 +9,14 @@ Employers often trawl applicants’ social media presences for objectionable beh
 * ~~write abstract~~
 * ~~Twitter search API call function - takes in user name, returns list of twitter-user objects~~
 * ~~Twitter API function that returns (objectionable) tweets as list of strings for a given user~~
+* web back end to update linkedin profile preview and objectionable tweets
+* code refactoring/cleanup for code reviewers
 
 ### Dylan
 * ~~Linkedin user API call function - takes in user ID, returns Linkedin user object w/ data (e.g. work history, education, etc.)~~
-* finalize linkedin user class (help christina use the api function for her todo)
+* ~~finalize linkedin user class (help christina use the api function for her todo)~~
+* linkedin scraper w/ selenium?
+* make poster
 
 ### Paul
 * ~~Twitter user class~~
@@ -21,13 +25,11 @@ Employers often trawl applicants’ social media presences for objectionable beh
 
 ### Christina
 * ~~Linkedin user class~~
-* finalize linkedin user class (add functionality so the object class can return work history, education, etc.)
+* ~~finalize linkedin user class (add functionality so the object class can return work history, education, etc.)~~
+* make poster
 
 ### Later
-* make poster
-* function to compare users?
-* web back end to update linkedin profile preview and objectionable tweets
-* code refactoring/cleanup
+* function to compare users? twitter user data is sparse though
 
 ## Setup (This assumes python 2.7 with pip is installed already)
 1. Install [django](https://www.djangoproject.com/download/) `pip install Django==1.11.7`
@@ -37,4 +39,3 @@ Employers often trawl applicants’ social media presences for objectionable beh
 
 ## Running
 1. cd to the `main` directory and run `python manage.py runserver`
-
