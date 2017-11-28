@@ -4,23 +4,36 @@
 	<title>Social Link</title>
     {% load static %}
 	<link rel="stylesheet" href="{% static 'socialLink/style.css' %}">
+	<script>
+		function setText(){
+		    var inputField = document.getElementById('search');
+		    inputField.value = '{{linkedInUrl}}';
+		    console.log('{{linkedInUrl}}');
+		}
+	</script>
 </head>
-<body>
+<body onload="setText()">
 	<div class="header">
 		<h1>SocialLink</h1>
 	</div>
 
 
 	<div class="search">
-		<label for="search">Name to search for: <input type="text"></label>
-		<button>Search</button>
+		<label for="search" >LinkedIn URL to search for: <input type="text" id="search" class="search-input"></label>
+		<button onclick="function sendUrl() {
+			var linkedURL = document.getElementById('search').value;
+			console.log(document.getElementById('search').value);
+			var newURL = '/?linked=' + linkedURL;
+		    window.location.replace(newURL);
+		}
+		sendUrl()">Search</button>
 	</div>
 
 	<div class="previews">
 		<div class="linkedin">
 			<h1>LinkedIn</h1>
 			<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
-			<script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/samy-achour-035218b3" data-format="inline" data-related="false"></script>
+			<script type="IN/MemberProfile" data-id="{{linkedInUrl}}" data-format="inline" data-related="false"></script>
 		</div>
 
 

@@ -1,10 +1,13 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, QueryDict
 from django.template import loader
+from django.views.decorators.csrf import csrf_exempt
+
 
 from .models import Tweet
 from twitter import *
 import string
+import json
 import csv
 
 
@@ -116,11 +119,22 @@ def getObjectionableTweets(user):
 
 def index(request):
     raw_tweets = getObjectionableTweets("ericandre")
+    # json.dumps(request)
+    # print request.body
+    linkedInUrl = ''
+    print "REQUEST META: " + str(QueryDict(request.META["QUERY_STRING"]))
+
+    queryDict = QueryDict(request.META["QUERY_STRING"])
+    if 'linked' in queryDict.keys():
+        linkedInUrl = queryDict['linked']
+
+    print "Linkedin: " + linkedInUrl
     tweets = []
     for i in raw_tweets:
         tweets.append(Tweet(i[0], "1/1/1"))
     template = loader.get_template("socialLink/index.html")
     context = {
-        'tweets': tweets
+        'tweets': tweets,
+        'linkedInUrl': linkedInUrl
     }
     return HttpResponse(template.render(context, request))
