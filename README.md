@@ -15,7 +15,6 @@ Employers often trawl applicants’ social media presences for objectionable beh
 ### Dylan
 * ~~Linkedin user API call function - takes in user ID, returns Linkedin user object w/ data (e.g. work history, education, etc.)~~
 * ~~finalize linkedin user class (help christina use the api function for her todo)~~
-* linkedin scraper w/ selenium?
 * make poster
 
 ### Paul
@@ -29,6 +28,7 @@ Employers often trawl applicants’ social media presences for objectionable beh
 * make poster
 
 ### Later
+* linkedin scraper (w/ selenium or beautifulsoup)?
 * function to compare users? twitter user data is sparse though
 
 ## Setup (This assumes python 2.7 with pip is installed already)
