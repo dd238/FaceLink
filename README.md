@@ -27,7 +27,7 @@ Employers often trawl applicants’ social media presences for objectionable beh
 
 ### Later
 * linkedin scraper (w/ selenium or beautifulsoup)?
-* function to compare users? twitter user data is sparse though
+* function to compare users? twitter user data is sparse though, and linkedin doesn't give us any extra attributes
 
 ## Setup (This assumes python 2.7 with pip is installed already)
 1. Install [django](https://www.djangoproject.com/download/) `pip install Django==1.11.7`
@@ -38,4 +38,4 @@ Employers often trawl applicants’ social media presences for objectionable beh
 ## Running
 1. cd to the `main` directory and run `python manage.py runserver`
 
-The main logic of the application is in [index.html](main/socialLink/templates/socialLink/index.html), [views.py](main/socialLink/views.py), [models.py](main/socialLink/models.py), [LinkedIn_API.py](main/LinkedIn_API.py)
+The main logic of the application is in [index.html](main/socialLink/templates/socialLink/index.html), [views.py](main/socialLink/views.py), [models.py](main/socialLink/models.py), and [LinkedIn_API.py](main/LinkedIn_API.py)

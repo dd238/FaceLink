@@ -114,7 +114,7 @@ def index(request):
 	if 'linked' in queryDict.keys():
 		linkedInUrl = queryDict['linked']
 
-	if linkedInUrl != "":
+	if linkedInUrl:
 		name = " ".join(linkedInUrl[linkedInUrl.find("/in/") + 4:].split("-")[:2]) # grabs name from URL
 		user_results = searchTwitter(name)
 		if user_results:
