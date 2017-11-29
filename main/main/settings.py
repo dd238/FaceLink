@@ -25,7 +25,7 @@ SECRET_KEY = 'x!qxv@-_b8ck@1@mh_0-n4%f%5o*$2+rh19w0zyep4%t+rn+fz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['social.impaul.io']
+ALLOWED_HOSTS = ['social.impaul.io', '127.0.0.1']
 
 
 # Application definition
