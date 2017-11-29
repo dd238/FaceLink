@@ -107,12 +107,14 @@ def index(request):
     # print request.body
 	tweets = []
 	linkedInUrl = ''
-    # hmmprint "REQUEST META: " + str(QueryDict(request.META["QUERY_STRING"]))
+	print "REQUEST META: " + str(QueryDict(request.META["QUERY_STRING"]))
 
 
 	queryDict = QueryDict(request.META["QUERY_STRING"])
 	if 'linked' in queryDict.keys():
 		linkedInUrl = queryDict['linked']
+
+	if linkedInUrl != "":
 		name = " ".join(linkedInUrl[linkedInUrl.find("/in/") + 4:].split("-")[:2]) # grabs name from URL
 		screen_name = searchTwitter(name)[0].username
 		tweets = getObjectionableTweets(screen_name)
