@@ -39,3 +39,5 @@ Employers often trawl applicants’ social media presences for objectionable beh
 1. cd to the `main` directory and run `python manage.py runserver`
 
 The main logic of the application is in [index.html](main/socialLink/templates/socialLink/index.html), [views.py](main/socialLink/views.py), [models.py](main/socialLink/models.py), and [LinkedIn_API.py](main/LinkedIn_API.py)
+
+![screencap](https://imgur.com/a/FXJdj)
