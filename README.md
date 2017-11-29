@@ -40,4 +40,6 @@ Employers often trawl applicants’ social media presences for objectionable beh
 
 The main logic of the application is in [index.html](main/socialLink/templates/socialLink/index.html), [views.py](main/socialLink/views.py), [models.py](main/socialLink/models.py), and [LinkedIn_API.py](main/LinkedIn_API.py)
 
+The site is live [here](https://social.impaul.io)
+
 ![screencap](https://i.imgur.com/69avpM2.png)
