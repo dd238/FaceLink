@@ -116,8 +116,11 @@ def index(request):
 
 	if linkedInUrl != "":
 		name = " ".join(linkedInUrl[linkedInUrl.find("/in/") + 4:].split("-")[:2]) # grabs name from URL
-		screen_name = searchTwitter(name)[0].username
-		tweets = getObjectionableTweets(screen_name)
+		user_results = searchTwitter(name)
+		if user_results:
+			screen_name = user_results[0].username
+			try: tweets = getObjectionableTweets(screen_name)
+			except TwitterHTTPError: tweets = [Tweet("User profile is private", "")]
 
 	print "Linkedin: " + linkedInUrl
 
