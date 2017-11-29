@@ -105,22 +105,25 @@ def getObjectionableTweets(user):
 def index(request):
     # json.dumps(request)
     # print request.body
-    linkedInUrl = ''
-    print "REQUEST META: " + str(QueryDict(request.META["QUERY_STRING"]))
+	tweets = []
+	linkedInUrl = ''
+    # hmmprint "REQUEST META: " + str(QueryDict(request.META["QUERY_STRING"]))
 
-    queryDict = QueryDict(request.META["QUERY_STRING"])
-    if 'linked' in queryDict.keys():
-        linkedInUrl = queryDict['linked']
 
-    #print "Linkedin: " + linkedInUrl
+	queryDict = QueryDict(request.META["QUERY_STRING"])
+	if 'linked' in queryDict.keys():
+		linkedInUrl = queryDict['linked']
+		name = " ".join(linkedInUrl[linkedInUrl.find("/in/") + 4:].split("-")[:2]) # grabs name from URL
+		screen_name = searchTwitter(name)[0].username
+		tweets = getObjectionableTweets(screen_name)
 
-	name = " ".join(linkedInUrl[linkedInUrl.find("/in/") + 4:].split("-")[:2]) # grabs name from URL
-	screen_name = searchTwitter(name)[0].username
-	tweets = getObjectionableTweets(screen_name)
+	print "Linkedin: " + linkedInUrl
 
-    template = loader.get_template("socialLink/index.html")
-    context = {
-        'tweets': tweets,
-        'linkedInUrl': linkedInUrl
-    }
-    return HttpResponse(template.render(context, request))
+
+
+	template = loader.get_template("socialLink/index.html")
+	context = {
+	    'tweets': tweets,
+	    'linkedInUrl': linkedInUrl
+	}
+	return HttpResponse(template.render(context, request))
