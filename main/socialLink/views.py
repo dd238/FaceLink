@@ -3,7 +3,6 @@ from django.http import HttpResponse, QueryDict
 from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
 
-
 from .models import Tweet, TwitterUser
 from twitter import *
 import string
@@ -95,7 +94,8 @@ def getObjectionableTweets(user):
     tweets = []
 
     for status in results:
-        tweets.append(Tweet(status["text"].encode("ascii", "ignore"), status["created_at"].encode("ascii", "ignore")[:10]))
+        tweets.append(
+            Tweet(status["text"].encode("ascii", "ignore"), status["created_at"].encode("ascii", "ignore")[:10]))
 
     return checkObjectionable(tweets)
 
@@ -105,30 +105,31 @@ def getObjectionableTweets(user):
 def index(request):
     # json.dumps(request)
     # print request.body
-	tweets = []
-	linkedInUrl = ''
-	print "REQUEST META: " + str(QueryDict(request.META["QUERY_STRING"]))
+    tweets = []
+    linkedInUrl = ''
+    print "REQUEST META: " + str(QueryDict(request.META["QUERY_STRING"]))
 
+    queryDict = QueryDict(request.META["QUERY_STRING"])
+    if 'linked' in queryDict.keys():
+        linkedInUrl = queryDict['linked']
 
-	queryDict = QueryDict(request.META["QUERY_STRING"])
-	if 'linked' in queryDict.keys():
-		linkedInUrl = queryDict['linked']
+    if linkedInUrl:
+        name = " ".join(linkedInUrl[linkedInUrl.find("/in/") + 4:].split("-")[:2])  # grabs name from URL
+        user_results = searchTwitter(name)
+        if user_results:
+            screen_name = user_results[0].username
+            try:
+                tweets = getObjectionableTweets(screen_name)
+            except TwitterHTTPError:
+                tweets = [Tweet("User profile is private", "")]
+        else:
+            tweets = [Tweet("No profile found", "")]
 
-	if linkedInUrl:
-		name = " ".join(linkedInUrl[linkedInUrl.find("/in/") + 4:].split("-")[:2]) # grabs name from URL
-		user_results = searchTwitter(name)
-		if user_results:
-			screen_name = user_results[0].username
-			try: tweets = getObjectionableTweets(screen_name)
-			except TwitterHTTPError: tweets = [Tweet("User profile is private", "")]
+    print "Linkedin: " + linkedInUrl
 
-	print "Linkedin: " + linkedInUrl
-
-
-
-	template = loader.get_template("socialLink/index.html")
-	context = {
-	    'tweets': tweets,
-	    'linkedInUrl': linkedInUrl
-	}
-	return HttpResponse(template.render(context, request))
+    template = loader.get_template("socialLink/index.html")
+    context = {
+        'tweets': tweets,
+        'linkedInUrl': linkedInUrl
+    }
+    return HttpResponse(template.render(context, request))
