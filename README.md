@@ -1,4 +1,4 @@
-# FaceLink
+# SocialLink
 
 ## Description
 Employers often trawl applicants’ social media presences for objectionable behavior. We are creating a business facing application that streamlines the process, combining API data from LinkedIn with that of Twitter and cross referencing them. The final product will have a web-based UI that displays the search results using python to make the API calls and process the data.
