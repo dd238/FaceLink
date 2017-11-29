@@ -1,4 +1,7 @@
 """
+THIS FILE IS NOT UTILIZED
+It was a prototype for the LinkedInAPI connection which has since been abandoned
+
 Programmer: Dylan Davis 
 Version: 1.0.0
 """
