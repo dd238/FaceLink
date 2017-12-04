@@ -38,7 +38,7 @@ Employers often trawl applicants’ social media presences for objectionable beh
 ## Running
 1. cd to the `main` directory and run `python manage.py runserver`
   * If you get an error `Error: [Errno 10013] An attempt was made to access a socket in a way forbidden by its access permissions` try running the server again on a different port `python manage.py runserver 3000`
-2. Navigate to htttp://127.0.0.1:8000 to view webpage (change 8000 to a different port number if you had to change it in step 1)
+2. Navigate to http://127.0.0.1:8000 to view webpage (change 8000 to a different port number if you had to change it in step 1)
 
 The main logic of the application is in [index.html](main/socialLink/templates/socialLink/index.html), [views.py](main/socialLink/views.py), [models.py](main/socialLink/models.py), and [LinkedIn_API.py](main/LinkedIn_API.py)
 
